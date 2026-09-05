@@ -47,10 +47,9 @@
   --font-size-2xl: 1.875rem;
   --font-size-3xl: 2.25rem;
   --font-size-4xl: 3rem;
+  --font-size-display: clamp(2.5rem, 5vw, 4.75rem);
   /* Font weights */
   --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
   /* Line heights */
@@ -91,6 +90,7 @@
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
   --shadow-base: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.4), 0 4px 8px -4px rgba(0, 0, 0, 0.34);
+  --shadow-lg-up: 0 -12px 20px -4px rgba(0, 0, 0, 0.4), 0 -4px 8px -4px rgba(0, 0, 0, 0.34);
   --shadow-xl: 0 24px 32px -8px rgba(0, 0, 0, 0.46), 0 8px 14px -6px rgba(0, 0, 0, 0.38);
   --shadow-2xl: 0 32px 60px -12px rgba(0, 0, 0, 0.62);
 
@@ -175,7 +175,7 @@
   /* Buttons */
   --button-padding-y: var(--spacing-sm);
   --button-padding-x: var(--spacing-lg);
-  --button-font-weight: var(--font-weight-semibold);
+  --button-font-weight: var(--font-weight-bold);
   --button-primary-bg: var(--accent-primary);
 
   /* Typography */

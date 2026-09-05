@@ -330,7 +330,7 @@ const getTrackDurationLabel = (song: Song): string =>
     border: 1px solid
       color-mix(in srgb, var(--music-album-accent) 24%, var(--music-album-line));
     border-radius: var(--album-playlist-radius);
-    box-shadow: 0 1.5rem 3rem oklch(0% 0 0deg / 0.25);
+    box-shadow: var(--shadow-lg);
   }
 
   .album-playlist-player::before {
@@ -648,7 +648,7 @@ const getTrackDurationLabel = (song: Song): string =>
       --album-playlist-track-duration-column: 2.45rem;
       --album-playlist-track-gap: 0.25rem;
 
-      box-shadow: 0 0.8rem 1.5rem oklch(0% 0 0deg / 0.18);
+      box-shadow: var(--shadow-base);
     }
 
     .album-playlist-player__tracklist-section {
@@ -755,7 +755,7 @@ const getTrackDurationLabel = (song: Song): string =>
       background: var(--music-album-paper);
       border: 1px solid var(--music-album-line);
       border-radius: var(--radius-md);
-      box-shadow: 0 1.5rem 4rem oklch(0% 0 0deg / 0.52);
+      box-shadow: var(--shadow-2xl);
     }
 
     .album-playlist-player__track-actions-popover::backdrop {

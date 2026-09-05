@@ -155,6 +155,7 @@ import Icon from "@components/visual/Icon.astro";
         class="global-player__button global-player__visuals-link"
         href="/visuals/"
         aria-label="Open fullscreen visuals"
+        title="Open fullscreen visuals"
       >
         <Icon name="tabler:device-tv" aria-hidden="true" />
       </a>
@@ -163,6 +164,7 @@ import Icon from "@components/visual/Icon.astro";
         href="/drive/"
         data-global-player-drive
         aria-label="Open Drive view"
+        title="Open Drive view"
       >
         <Icon name="tabler:steering-wheel" aria-hidden="true" />
       </a>
@@ -171,6 +173,7 @@ import Icon from "@components/visual/Icon.astro";
         type="button"
         data-global-player-action="clear"
         aria-label="Clear playback"
+        title="Clear playback"
       >
         <Icon name="tabler:trash" aria-hidden="true" />
       </button>
@@ -179,6 +182,7 @@ import Icon from "@components/visual/Icon.astro";
         type="button"
         data-global-player-action="minimize"
         aria-label="Minimize player"
+        title="Minimize player"
       >
         <Icon name="chevron-down" aria-hidden="true" />
       </button>
@@ -187,6 +191,7 @@ import Icon from "@components/visual/Icon.astro";
         type="button"
         data-global-player-action="expand"
         aria-label="Expand player"
+        title="Expand player"
       >
         <Icon name="tabler:chevron-up" aria-hidden="true" />
       </button>
@@ -210,7 +215,7 @@ import Icon from "@components/visual/Icon.astro";
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-1) 96%, var(--bg-primary));
     border-block-start: 1px solid var(--border-default);
-    box-shadow: 0 -0.75rem 2rem oklch(0% 0 0deg / 0.3);
+    box-shadow: var(--shadow-lg-up);
   }
 
   .global-player[hidden] {

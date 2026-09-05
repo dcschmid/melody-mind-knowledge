@@ -295,7 +295,7 @@ const bindRadioPage = (): void => {
         currentArtwork.alt = `Cover art for ${summary.previewAlbum.title}, a record in ${summary.title}`;
       }
       if (currentTrack) {
-        currentTrack.textContent = summary.title;
+        currentTrack.textContent = "Press play to tune in";
       }
       if (currentAlbum) {
         currentAlbum.textContent = "Ready for a fresh rotation";

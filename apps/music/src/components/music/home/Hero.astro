@@ -24,10 +24,11 @@ const queueScriptId = featuredAlbum
 const ambientImage = featuredAlbum
   ? await getImage({
       src: featuredAlbum.imageSrc,
-      width: 480,
-      height: 480,
+      width: 96,
+      height: 96,
       fit: "cover",
       format: "webp",
+      quality: 40,
     })
   : undefined;
 ---
@@ -174,8 +175,6 @@ const ambientImage = featuredAlbum
     background-image: var(--music-home-ambient-image);
     background-position: center;
     background-size: cover;
-    filter: blur(2.5rem) saturate(0.85);
-    transform: scale(1.12);
   }
 
   .music-home-hero__cover-link {
@@ -222,7 +221,7 @@ const ambientImage = featuredAlbum
   .music-home-hero__title {
     max-inline-size: 13ch;
     margin: 0;
-    font-size: clamp(2.75rem, 2rem + 3vw, 5rem);
+    font-size: var(--font-size-display);
     font-weight: var(--font-weight-bold);
     line-height: 0.98;
     text-wrap: balance;

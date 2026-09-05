@@ -122,15 +122,15 @@ const structuredData = [
     />
 
     <div class="music-home__content" id="discover">
-      <div>
+      <div class="music-home__section music-home__section--releases">
         <LatestAlbumsSection albums={latestAlbums} title={t.latestAlbums} />
       </div>
 
-      <div>
+      <div class="music-home__section music-home__section--genres">
         <MainGenresSection genres={mainGenreShelf} title={t.mainGenres} />
       </div>
 
-      <div>
+      <div class="music-home__section music-home__section--series">
         <AlbumSeriesSection series={seriesShelf} title={t.series} />
       </div>
     </div>
@@ -185,6 +185,19 @@ const structuredData = [
     max-inline-size: 90rem;
     padding: clamp(0.55rem, 1.4vw, 1.2rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
     margin-inline: auto;
+  }
+
+  .music-home__section {
+    min-inline-size: 0;
+  }
+
+  .music-home__section--genres {
+    max-inline-size: 72rem;
+  }
+
+  .music-home__section--series {
+    max-inline-size: 78rem;
+    margin-inline-start: auto;
   }
 
   @media (width <= 760px) {

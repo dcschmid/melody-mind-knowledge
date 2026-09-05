@@ -187,7 +187,11 @@ const moodCounts = new Map(
     <header class="mood-navigator__results-header">
       <div class="mood-navigator__results-copy">
         <p class="mood-navigator__count" data-mood-result-count aria-live="polite">
-          {preparedAlbums.length} albums match
+          {
+            preparedAlbums.length === 1
+              ? "1 album matches"
+              : `${preparedAlbums.length} albums match`
+          }
         </p>
         <h2 id="mood-results-heading" class="mood-navigator__results-title">
           Albums for this moment
