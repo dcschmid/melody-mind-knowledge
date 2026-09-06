@@ -66,6 +66,7 @@ const main = async () => {
     outputDirectory,
     itemLabel: "review",
     items: reviews,
+    brandLine: BRAND_LINE,
     generateCard: (item, outputPath) =>
       generateCoverCard({ ...item, brandLine: BRAND_LINE }, outputPath),
     generateFallbackCard: (item, outputPath) =>
@@ -75,6 +76,10 @@ const main = async () => {
         { brandLine: BRAND_LINE, tagline: "Sourced album criticism without scores" },
         outputPath
       ),
+    defaultCardKey: {
+      brandLine: BRAND_LINE,
+      tagline: "Sourced album criticism without scores",
+    },
   });
 };
 

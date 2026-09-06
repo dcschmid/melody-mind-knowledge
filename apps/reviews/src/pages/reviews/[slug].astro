@@ -36,7 +36,7 @@ const coverAsset =
 const coverImageUrl =
   coverAsset && Astro.site ? toAbsoluteAssetUrl(coverAsset, Astro.site) : undefined;
 /* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
-const socialImageUrl = new URL(`/og/${review.id}.jpg`, Astro.site).toString();
+const socialImageUrl = new URL(`/og/${review.id}.webp`, Astro.site).toString();
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Review",

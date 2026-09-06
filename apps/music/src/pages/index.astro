@@ -54,7 +54,7 @@ const mainGenreShelf = genreDirectories;
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const homeImage = featuredAlbum
-  ? `/og/${featuredAlbum.id}.jpg`
+  ? `/og/${featuredAlbum.id}.webp`
   : musicDefaultSocialImageUrl;
 
 const t = {
@@ -106,7 +106,7 @@ const structuredData = [
   image={homeImage}
   imageWidth={1200}
   imageHeight={630}
-  imageType="image/jpeg"
+  imageType="image/webp"
   language="en"
   locale="en-US"
   canonical={canonical}

@@ -87,7 +87,7 @@ const albumCards = genreAlbums.map((album) => {
 const canonical = resolvePageUrl(Astro.site, `/genre/${page.slug}/`);
 const socialImageAlbum = genreAlbums[0];
 const pageImage = socialImageAlbum
-  ? `/og/${socialImageAlbum.id}.jpg`
+  ? `/og/${socialImageAlbum.id}.webp`
   : musicDefaultSocialImageUrl;
 const pageImageAlt = socialImageAlbum
   ? `Cover art for ${socialImageAlbum.title}, featured on the ${page.title} page`
@@ -127,7 +127,7 @@ const GRID_COVER_IMAGE_SIZES =
   image={pageImage}
   imageWidth={1200}
   imageHeight={630}
-  imageType="image/jpeg"
+  imageType="image/webp"
   imageAlt={pageImageAlt}
   language="en"
   locale="en-US"

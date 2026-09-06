@@ -6,7 +6,7 @@ import musicDefaultOgSvg from "../assets/music-default-og.webp";
 const musicDefaultOgImage: ImageMetadata = musicDefaultOgSvg;
 const musicDefaultOgImageUrl = `${MUSIC_SITE_URL}${musicDefaultOgSvg.src}`;
 /* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
-const musicDefaultSocialImageUrl = `${MUSIC_SITE_URL}/og/default.jpg`;
+const musicDefaultSocialImageUrl = `${MUSIC_SITE_URL}/og/default.webp`;
 
 const albumCoverModules = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/album-covers/*.{jpg,jpeg,png,webp,avif}",

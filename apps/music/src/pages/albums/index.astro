@@ -51,7 +51,7 @@ const canonical = resolvePageUrl(Astro.site, "/albums/");
 const description =
   "Browse every MelodyMind concept album in one alphabetical archive, with instant filtering by title, genre, mood, or album series.";
 const pageImage = albumCards[0]
-  ? `/og/${albumCards[0].id}.jpg`
+  ? `/og/${albumCards[0].id}.webp`
   : musicDefaultSocialImageUrl;
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
@@ -87,7 +87,7 @@ const GRID_COVER_IMAGE_SIZES =
   image={pageImage}
   imageWidth={1200}
   imageHeight={630}
-  imageType="image/jpeg"
+  imageType="image/webp"
   language="en"
   locale="en-US"
   canonical={canonical}

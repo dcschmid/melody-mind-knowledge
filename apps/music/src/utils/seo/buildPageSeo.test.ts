@@ -127,7 +127,7 @@ describe("buildPageSeo social payloads", () => {
     const result = buildPageSeo({
       ...baseParams,
       title: "T",
-      image: "/og/test.jpg",
+      image: "/og/test.webp",
       imageAlt: "Alt text",
       ogLocale: "en_US",
       twitterCreator: "@melodymind",
@@ -135,9 +135,9 @@ describe("buildPageSeo social payloads", () => {
     });
 
     expect(result.twitter.card).toBe("summary_large_image");
-    expect(result.twitter.image).toBe("/og/test.jpg");
+    expect(result.twitter.image).toBe("/og/test.webp");
     expect(result.twitter.creator).toBe("@melodymind");
-    expect(result.openGraph.image).toBe("/og/test.jpg");
+    expect(result.openGraph.image).toBe("/og/test.webp");
     expect(result.openGraph.locale).toBe("en_US");
     expect(result.imageAlt).toBe("Alt text");
   });
@@ -151,7 +151,7 @@ describe("buildPageSeo social payloads", () => {
   });
 
   it("generates a social image only when opted in and no image exists", () => {
-    const generateSocialImage = vi.fn(() => "/og/generated.jpg");
+    const generateSocialImage = vi.fn(() => "/og/generated.webp");
 
     const generated = buildPageSeo({
       ...baseParams,
@@ -162,13 +162,13 @@ describe("buildPageSeo social payloads", () => {
     const withImage = buildPageSeo({
       ...baseParams,
       title: "T",
-      image: "/og/explicit.jpg",
+      image: "/og/explicit.webp",
       autoSocialImage: true,
       generateSocialImage,
     });
 
-    expect(generated.image).toBe("/og/generated.jpg");
-    expect(withImage.image).toBe("/og/explicit.jpg");
+    expect(generated.image).toBe("/og/generated.webp");
+    expect(withImage.image).toBe("/og/explicit.webp");
     expect(generateSocialImage).toHaveBeenCalledTimes(1);
   });
 

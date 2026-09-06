@@ -10,7 +10,7 @@
  * Output is a build artifact under public/og/ (gitignored) and is regenerated
  * by the dev/build scripts.
  */
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, extname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { load as loadYaml } from "js-yaml";
@@ -92,11 +92,13 @@ const main = async () => {
     outputDirectory,
     itemLabel: "album",
     items: albums,
+    brandLine: BRAND_LINE,
     generateCard: (item, outputPath) =>
       generateCoverCard({ ...item, brandLine: BRAND_LINE }, outputPath),
     generateFallbackCard: (item, outputPath) =>
       generateTitleCard({ ...item, brandLine: BRAND_LINE }, outputPath),
     generateDefaultCard: (outputPath) => generateLogoCard(logoPath, outputPath),
+    defaultCardKey: { logoMtimeMs: statSync(logoPath).mtimeMs, brandLine: BRAND_LINE },
   });
 };
 

@@ -77,6 +77,7 @@ const main = async () => {
     outputDirectory,
     itemLabel: "story",
     items: stories,
+    brandLine: BRAND_LINE,
     generateCard: (item, outputPath) =>
       generateHeroCard({ ...item, brandLine: BRAND_LINE }, outputPath),
     generateDefaultCard: (outputPath) =>
@@ -84,6 +85,10 @@ const main = async () => {
         { brandLine: BRAND_LINE, tagline: "Sourced long-form music journalism" },
         outputPath
       ),
+    defaultCardKey: {
+      brandLine: BRAND_LINE,
+      tagline: "Sourced long-form music journalism",
+    },
   });
 };
 

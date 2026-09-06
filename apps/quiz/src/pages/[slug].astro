@@ -41,7 +41,7 @@ const canonical = new URL(`/${quiz.id}/`, Astro.site).toString();
 const image = getQuizArtwork(quiz.id);
 const nextQuizImage = getQuizArtwork(nextQuiz.id);
 /* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
-const socialImageUrl = new URL(`/og/${quiz.id}.jpg`, Astro.site).toString();
+const socialImageUrl = new URL(`/og/${quiz.id}.webp`, Astro.site).toString();
 const title = quiz.data.seoTitle ?? `${quiz.data.title} Music Quiz`;
 const description = quiz.data.seoDescription ?? quiz.data.description;
 const questions = quiz.data.questions.map((question): QuizQuestion => ({

@@ -132,8 +132,7 @@ const resolvedImageWidth =
   imageWidth ?? (isDefaultSocialImage ? defaultOgImageWidth : undefined);
 const resolvedImageHeight =
   imageHeight ?? (isDefaultSocialImage ? defaultOgImageHeight : undefined);
-const resolvedImageType =
-  imageType ?? (isDefaultSocialImage ? "image/jpeg" : "image/webp");
+const resolvedImageType = imageType ?? "image/webp";
 
 const seoProps = {
   title: pageSeoResolved.title || fullTitle,

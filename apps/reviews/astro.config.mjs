@@ -89,7 +89,7 @@ export default defineConfig({
         // Submit the generated social card to image search for review pages.
         if (reviewDates.has(pathname)) {
           const slug = pathname.slice("/reviews/".length, -1);
-          item.img = [{ url: `${SITE_URL}/og/${slug}.jpg` }];
+          item.img = [{ url: `${SITE_URL}/og/${slug}.webp` }];
         }
         return item;
       },

@@ -112,7 +112,7 @@ export default defineConfig({
           const slug = pathname.slice(1, -1);
           item.img = [
             {
-              url: `${SITE_URL}/og/${slug}.jpg`,
+              url: `${SITE_URL}/og/${slug}.webp`,
               caption: `Cover art for ${albumMeta.title}`,
             },
           ];
