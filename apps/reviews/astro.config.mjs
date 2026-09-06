@@ -45,21 +45,6 @@ export default defineConfig({
         ],
       },
     },
-    {
-      provider: fontProviders.local(),
-      name: "Literata",
-      cssVariable: "--font-literata",
-      fallbacks: ["Georgia", "serif"],
-      options: {
-        variants: [
-          {
-            src: ["./src/assets/fonts/literata-latin-variable.woff2"],
-            weight: "400 800",
-            style: "normal",
-          },
-        ],
-      },
-    },
   ],
   redirects: {
     "/page/1": "/",

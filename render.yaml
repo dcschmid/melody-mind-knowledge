@@ -8,7 +8,7 @@ services:
     name: melody-mind-music
     runtime: static
     autoDeployTrigger: checksPass
-    buildCommand: pnpm install && pnpm build
+    buildCommand: pnpm install --frozen-lockfile && pnpm build
     staticPublishPath: apps/music/dist
     buildFilter:
       paths:
@@ -60,7 +60,7 @@ services:
     name: melody-mind-embed
     runtime: static
     autoDeployTrigger: checksPass
-    buildCommand: pnpm install && pnpm build:embed
+    buildCommand: pnpm install --frozen-lockfile && pnpm build:embed
     staticPublishPath: apps/music/dist-embed
     domains:
       - embed.melody-mind.de
@@ -100,11 +100,12 @@ services:
     name: melody-mind-quiz
     runtime: static
     autoDeployTrigger: checksPass
-    buildCommand: pnpm install && pnpm build:quiz
+    buildCommand: pnpm install --frozen-lockfile && pnpm build:quiz
     staticPublishPath: apps/quiz/dist
     buildFilter:
       paths:
         - apps/quiz/**
+        - packages/site-nav/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -141,13 +142,14 @@ services:
     name: melody-mind-stories
     runtime: static
     autoDeployTrigger: checksPass
-    buildCommand: pnpm install && pnpm build:stories
+    buildCommand: pnpm install --frozen-lockfile && pnpm build:stories
     staticPublishPath: apps/stories/dist
     domains:
       - stories.melody-mind.de
     buildFilter:
       paths:
         - apps/stories/**
+        - packages/site-nav/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -187,13 +189,14 @@ services:
     name: melody-mind-reviews
     runtime: static
     autoDeployTrigger: checksPass
-    buildCommand: pnpm install && pnpm build:reviews
+    buildCommand: pnpm install --frozen-lockfile && pnpm build:reviews
     staticPublishPath: apps/reviews/dist
     domains:
       - reviews.melody-mind.de
     buildFilter:
       paths:
         - apps/reviews/**
+        - packages/site-nav/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml

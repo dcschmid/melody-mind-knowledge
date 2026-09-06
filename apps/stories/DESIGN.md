@@ -2,14 +2,13 @@
 name: MelodyMind Stories
 description: A dark editorial archive for sourced long-form music writing.
 colors:
-  archive-night: "oklch(12% 0.028 250deg)"
-  desk-night: "oklch(17.5% 0.03 250deg)"
-  paper-ink: "oklch(95% 0.012 82deg)"
-  quiet-ink: "oklch(76% 0.025 245deg)"
-  archive-teal: "oklch(78% 0.105 181deg)"
-  oxide: "oklch(68% 0.115 48deg)"
+  archive-night: "oklch(11.5% 0.03 250deg)"
+  desk-night: "oklch(17% 0.032 250deg)"
+  paper-ink: "oklch(96.5% 0.01 85deg)"
+  quiet-ink: "oklch(79% 0.026 248deg)"
+  archive-teal: "oklch(80% 0.115 180deg)"
 typography:
-  display: "Literata"
+  display: "Atkinson Hyperlegible"
   body: "Atkinson Hyperlegible"
 register: brand
 ---
@@ -23,15 +22,17 @@ carefully lit object, and visible catalog notes. Pages feel composed, not decora
 
 ## Color
 
-The strategy is restrained with two deliberate signals. Teal identifies navigation,
-links, and active annotation state. Oxide is reserved for cover-story numbers and
-small editorial cues. Neither color is used as ambient decoration.
+The strategy is restrained with one deliberate signal. Teal identifies navigation,
+links, active annotation state, cover-story numbers, drop caps, section rules,
+blockquote rules, source markers, and annotation markers. It is never used as
+ambient decoration.
 
 ## Typography
 
-Literata carries headlines and pull lines. Atkinson Hyperlegible carries all body copy,
-controls, metadata, captions, and sources. Reading text is 18px or larger and limited
-to 68–72 characters.
+Atkinson Hyperlegible carries headlines, pull lines, all body copy, controls,
+metadata, captions, and sources. Editorial identity comes from type scale,
+spacing, and asymmetry—not a second face or color. Reading text is 18px or
+larger and limited to 68–72 characters.
 
 ## Layout
 

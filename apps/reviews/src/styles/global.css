@@ -1,20 +1,20 @@
 /* Fonts are registered via the Astro fonts API in astro.config.mjs and
-   injected as --font-atkinson / --font-literata by the <Font /> component. */
+   injected as --font-atkinson by the <Font /> component. */
 :root {
   color-scheme: dark;
   font-family: var(--font-atkinson);
   font-synthesis: none;
-  --archive-night: oklch(11.5% 0.027 250deg);
-  --desk-night: oklch(16.5% 0.03 250deg);
-  --lifted-night: oklch(21% 0.032 250deg);
-  --paper-ink: oklch(95.5% 0.014 82deg);
-  --quiet-ink: oklch(77% 0.024 246deg);
+  --archive-night: oklch(11.5% 0.03 250deg);
+  --desk-night: oklch(17% 0.032 250deg);
+  --lifted-night: oklch(22.5% 0.035 250deg);
+  --paper-ink: oklch(96.5% 0.01 85deg);
+  --quiet-ink: oklch(79% 0.026 248deg);
   --signal: oklch(80% 0.115 180deg);
   --signal-strong: oklch(84% 0.1 180deg);
-  --line: oklch(38% 0.031 250deg);
-  --line-soft: oklch(28% 0.028 250deg);
-  --focus: oklch(84% 0.11 181deg);
-  --font-display: var(--font-literata);
+  --line: oklch(40% 0.035 250deg);
+  --line-soft: oklch(32% 0.03 250deg / 0.7);
+  --focus: oklch(84% 0.11 180deg);
+  --font-display: var(--font-atkinson);
   --font-body: var(--font-atkinson);
   --reading-width: 70ch;
   --wide-width: 88rem;
@@ -80,7 +80,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 650;
+  font-weight: 700;
   line-height: 1.04;
   text-wrap: balance;
 }
