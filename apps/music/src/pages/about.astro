@@ -178,6 +178,37 @@ const pageSeo = buildPageSeo({
           </div>
         </section>
 
+        <section class="about-page__section" aria-labelledby="about-anna-title">
+          <h2 id="about-anna-title" class="about-page__section-title">About Anna</h2>
+          <div class="about-page__copy">
+            <p>
+              MelodyMind Music is also a little corner of the internet that belongs to
+              Annabelle Bäuerle, Daniel's partner. For more than ten years she has taught
+              languages, and she brings that same patience for words and people to the
+              projects they share.
+            </p>
+            <p>
+              On her channel{" "}
+              <a
+                href="https://www.youtube.com/@DeutschlernenmitAnna"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Deutsch lernen mit Anna
+              </a>{" "}
+              she teaches German through short, friendly lessons, and her website{" "}
+              <a
+                href="https://www.annaseck.de/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                annaseck.de
+              </a>{" "}
+              tells the story of her work with students.
+            </p>
+          </div>
+        </section>
+
         <section
           class="about-page__section"
           id="ai-transparency"
@@ -332,6 +363,16 @@ const pageSeo = buildPageSeo({
 
   .about-page__copy p + p {
     margin-block-start: var(--spacing-lg);
+  }
+
+  .about-page__copy a {
+    color: var(--accent-primary);
+    text-underline-offset: 0.18em;
+  }
+
+  .about-page__copy a:hover,
+  .about-page__copy a:focus-visible {
+    color: var(--accent-strong);
   }
 
   .about-page__feature-list {
