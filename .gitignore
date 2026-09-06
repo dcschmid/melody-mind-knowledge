@@ -5,6 +5,7 @@ dist-embed/
 .astro/
 
  # local agent/tooling state (machine-local)
+.impeccable/
 .omp/
 .claude/skills/
 .frontend-ai-managed-skill-links.json
