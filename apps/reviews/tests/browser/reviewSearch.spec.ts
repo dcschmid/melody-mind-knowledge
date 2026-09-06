@@ -61,3 +61,49 @@ test("hides inert search controls without JavaScript", async ({ browser }) => {
   await expect(staticList.getByRole("link").first()).toBeVisible();
   await context.close();
 });
+
+test("locks background scrolling while the mobile navigation is open", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  // Deterministic measurements regardless of any smooth-scroll styling.
+  await page.addStyleTag({ content: "html { scroll-behavior: auto !important; }" });
+
+  const menuButton = page.locator("[data-menu-button]");
+  const backdrop = page.locator("[data-menu-backdrop]");
+
+  await page.evaluate(() => window.scrollTo(0, 400));
+  const scrolledTo = await page.evaluate(() => window.scrollY);
+  expect(scrolledTo).toBeGreaterThan(0);
+
+  await menuButton.click();
+  await expect(menuButton).toHaveAttribute("aria-expanded", "true");
+  await expect(backdrop).toBeVisible();
+
+  // A wheel gesture over the visible backdrop must not move the page.
+  const box = await backdrop.boundingBox();
+  if (!box) {
+    throw new Error("Backdrop is not visible while the navigation is open.");
+  }
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height - 40);
+  await page.mouse.wheel(0, 300);
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      })
+  );
+  expect(await page.evaluate(() => window.scrollY)).toBe(scrolledTo);
+
+  await page.keyboard.press("Escape");
+  await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  await expect(menuButton).toBeFocused();
+
+  // Scrolling resumes once the drawer closes.
+  await page.mouse.move(195, 500);
+  await page.mouse.wheel(0, 300);
+  await expect
+    .poll(() => page.evaluate(() => window.scrollY))
+    .toBeGreaterThan(scrolledTo);
+});

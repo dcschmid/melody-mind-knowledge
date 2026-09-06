@@ -15,7 +15,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
 ---
 
 <div class="story-directory" data-story-directory>
-  <div class="story-directory__controls" data-story-directory-controls>
+  <div class="story-directory__controls" data-story-directory-controls hidden>
     <form class="story-directory__search" role="search" data-story-search-form>
       <label for="story-archive-search">Search the story archive</label>
       <div class="story-directory__search-row">
@@ -153,6 +153,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
       }
       root.dataset.ready = "true";
 
+      const controls = root.querySelector<HTMLElement>("[data-story-directory-controls]");
       const form = root.querySelector<HTMLFormElement>("[data-story-search-form]");
       const input = root.querySelector<HTMLInputElement>("[data-story-search-input]");
       const clear = root.querySelector<HTMLButtonElement>("[data-story-search-clear]");
@@ -174,6 +175,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
         root.parentElement?.querySelector<HTMLElement>(".pagination");
 
       if (
+        !controls ||
         !form ||
         !input ||
         !clear ||
@@ -371,6 +373,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
       });
 
       readState();
+      controls.hidden = false;
       if (input.value.trim() || selectedFormat()) {
         void render(false);
       }

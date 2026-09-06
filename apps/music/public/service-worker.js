@@ -52,6 +52,11 @@ const putRuntimeCache = async (request, response) => {
   await trimRuntimeCache(cache);
 };
 
+const matchRuntimeCache = async (request) => {
+  const cache = await caches.open(RUNTIME_CACHE);
+  return cache.match(request);
+};
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
@@ -121,8 +126,12 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(async () => {
-          const cachedPage = await caches.match(request);
-          return cachedPage || caches.match("/");
+          const runtimePage = await matchRuntimeCache(request);
+          if (runtimePage) {
+            return runtimePage;
+          }
+          const runtimeHome = await matchRuntimeCache("/");
+          return runtimeHome || (await caches.match("/"));
         })
     );
     return;

@@ -116,18 +116,19 @@ const isCurrent = (href: string) =>
     const { signal } = controller;
     let previouslyFocused: HTMLElement | null = null;
 
-    const setOpen = (open: boolean) => {
+    const setOpen = (open: boolean, restoreFocus = true) => {
       header.dataset.open = String(open);
       button.setAttribute("aria-expanded", String(open));
       button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
       menu.setAttribute("aria-hidden", String(!open));
+      document.body.classList.toggle("reviews-header-open", open);
       document.querySelector("main")?.toggleAttribute("inert", open);
       document.querySelector("footer")?.toggleAttribute("inert", open);
 
       if (open) {
         previouslyFocused = document.activeElement as HTMLElement;
         menu.querySelector<HTMLElement>("a")?.focus();
-      } else if (previouslyFocused) {
+      } else if (restoreFocus && previouslyFocused) {
         previouslyFocused.focus();
         previouslyFocused = null;
       }
@@ -142,7 +143,7 @@ const isCurrent = (href: string) =>
     menu
       .querySelectorAll("a")
       .forEach((link) =>
-        link.addEventListener("click", () => setOpen(false), { signal })
+        link.addEventListener("click", () => setOpen(false, false), { signal })
       );
 
     document.addEventListener(
@@ -176,13 +177,22 @@ const isCurrent = (href: string) =>
     );
 
     const desktop = window.matchMedia("(width >= 48rem)");
-    desktop.addEventListener("change", (event) => event.matches && setOpen(false), {
-      signal,
-    });
+    desktop.addEventListener(
+      "change",
+      (event) => event.matches && setOpen(false, false),
+      {
+        signal,
+      }
+    );
 
-    document.addEventListener("astro:before-swap", () => controller.abort(), {
-      once: true,
-    });
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        setOpen(false, false);
+        controller.abort();
+      },
+      { once: true }
+    );
   };
 
   initializeHeader();
@@ -431,5 +441,9 @@ const isCurrent = (href: string) =>
     .site-header__mobile-nav {
       transition: none;
     }
+  }
+
+  :global(body.reviews-header-open) {
+    overflow: hidden;
   }
 </style>

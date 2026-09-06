@@ -60,3 +60,16 @@ test("has no horizontal overflow at 390x844", async ({ page }) => {
   const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(scrollWidth).toBe(390);
 });
+
+test("hides search controls without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto("/");
+
+  await expect(page.locator("[data-story-directory-controls]")).toBeHidden();
+  const staticGrid = page.locator("[data-story-static-grid]");
+  await expect(staticGrid).toBeVisible();
+  expect(await staticGrid.getByRole("listitem").count()).toBeGreaterThan(0);
+  await expect(staticGrid.getByRole("link").first()).toBeVisible();
+  await context.close();
+});
