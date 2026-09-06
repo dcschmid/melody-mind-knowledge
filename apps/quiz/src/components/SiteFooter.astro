@@ -1,3 +1,7 @@
+---
+import { APP_LINKS, LEGAL_LINKS } from "@melodymind/site-nav";
+---
+
 <footer class="quiz-footer">
   <div class="quiz-footer__inner page-shell">
     <div class="quiz-footer__brand">
@@ -8,15 +12,15 @@
     <div class="quiz-footer__nav-groups">
       <nav class="quiz-footer__links" aria-label="MelodyMind apps">
         <a href="/about/#ai-transparency">AI transparency</a>
-        <a href="https://melody-mind.de/">Music</a>
         <a href="/">Quiz</a>
-        <a href="https://stories.melody-mind.de/">Stories</a>
-        <a href="https://reviews.melody-mind.de/">Reviews</a>
+        {
+          APP_LINKS.filter((link) => link.label !== "Quiz").map((link) => (
+            <a href={link.href}>{link.label}</a>
+          ))
+        }
       </nav>
       <nav class="quiz-footer__links" aria-label="Legal information">
-        <a href="https://melody-mind.de/imprint/">Imprint</a>
-        <a href="https://melody-mind.de/privacy/">Privacy</a>
-        <a href="https://melody-mind.de/cookies/">Cookies & storage</a>
+        {LEGAL_LINKS.map((link) => <a href={link.href}>{link.label}</a>)}
       </nav>
     </div>
   </div>

@@ -1,5 +1,6 @@
 ---
 import melodyMindLogo from "@assets/melody-mind-logo.webp";
+import { APP_LINKS } from "@melodymind/site-nav";
 
 const year = new Date().getFullYear();
 ---
@@ -31,15 +32,13 @@ const year = new Date().getFullYear();
 
       <section aria-labelledby="footer-network">
         <h2 id="footer-network">MelodyMind</h2>
-        <a href="https://melody-mind.de/">
-          Music <span aria-hidden="true">↗</span>
-        </a>
-        <a href="https://stories.melody-mind.de/">
-          Stories <span aria-hidden="true">↗</span>
-        </a>
-        <a href="https://quiz.melody-mind.de/">
-          Quiz <span aria-hidden="true">↗</span>
-        </a>
+        {
+          APP_LINKS.filter((link) => link.label !== "Reviews").map((link) => (
+            <a href={link.href}>
+              {link.label} <span aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
       </section>
 
       <section aria-labelledby="footer-editorial">

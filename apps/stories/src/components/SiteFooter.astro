@@ -1,5 +1,6 @@
 ---
 import melodyMindLogo from "@assets/melody-mind-logo.webp";
+import { APP_LINKS, LEGAL_LINKS } from "@melodymind/site-nav";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -42,9 +43,13 @@ const currentYear = new Date().getFullYear();
         <h2 id="footer-melodymind">MelodyMind</h2>
         <nav aria-label="MelodyMind apps">
           <ul class="site-footer__link-list">
-            <li><a href="https://melody-mind.de/">Music</a></li>
-            <li><a href="https://quiz.melody-mind.de/">Quiz</a></li>
-            <li><a href="https://reviews.melody-mind.de/">Reviews</a></li>
+            {
+              APP_LINKS.filter((link) => link.label !== "Stories").map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
       </section>
@@ -53,15 +58,13 @@ const currentYear = new Date().getFullYear();
         <h2 id="footer-legal">Legal</h2>
         <nav aria-label="MelodyMind legal information">
           <ul class="site-footer__link-list">
-            <li>
-              <a href="https://melody-mind.de/imprint/">Legal Notice</a>
-            </li>
-            <li>
-              <a href="https://melody-mind.de/privacy/">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="https://melody-mind.de/cookies/">Storage Policy</a>
-            </li>
+            {
+              LEGAL_LINKS.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
       </section>

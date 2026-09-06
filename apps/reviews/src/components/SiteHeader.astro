@@ -1,5 +1,6 @@
 ---
 import melodyMindLogo from "@assets/melody-mind-logo.webp";
+import { APP_LINKS } from "@melodymind/site-nav";
 
 interface Props {
   currentPath: string;
@@ -10,11 +11,7 @@ const navigation = [
   { href: "/", label: "Reviews" },
   { href: "/about/", label: "About" },
 ];
-const networkNavigation = [
-  { href: "https://melody-mind.de/", label: "Music" },
-  { href: "https://quiz.melody-mind.de/", label: "Quiz" },
-  { href: "https://stories.melody-mind.de/", label: "Stories" },
-];
+const networkNavigation = APP_LINKS.filter((link) => link.label !== "Reviews");
 
 const isCurrent = (href: string) =>
   href === "/"

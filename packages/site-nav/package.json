@@ -1,0 +1,15 @@
+{
+  "name": "@melodymind/site-nav",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.ts\"",
+    "format": "pnpm exec prettier --write \"src/**/*.ts\"",
+    "format:check": "pnpm exec prettier --check \"src/**/*.ts\""
+  }
+}
