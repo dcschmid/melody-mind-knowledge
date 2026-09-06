@@ -24,9 +24,11 @@ vi.mock("astro:content", () => ({
   },
 }));
 
+const PUBLISHED_AT = new Date("2026-01-15T09:30:00.000Z");
+
 const makeEntry = (id: string, isAvailable: boolean): AlbumEntry => ({
   id,
-  data: { title: `Album ${id}`, isAvailable },
+  data: { title: `Album ${id}`, isAvailable, publishedAt: PUBLISHED_AT },
   body: `Body of ${id}`,
 });
 
@@ -47,24 +49,17 @@ describe("getAvailableAlbums", () => {
       id: "one",
       title: "Album one",
       isAvailable: true,
+      publishedAt: "2026-01-15T09:30:00.000Z",
       body: "Body of one",
     });
   });
 
-  it("returns an empty list and warns when the collection fails", async () => {
+  it("rejects when the collection fails", async () => {
     state.shouldThrow = true;
-    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
 
     const { getAvailableAlbums } = await import("./albums");
-    const albums = await getAvailableAlbums();
+    await expect(getAvailableAlbums()).rejects.toThrow("collection unavailable");
 
-    expect(albums).toEqual([]);
-    expect(warn).toHaveBeenCalledWith(
-      "Failed to load albums",
-      expect.objectContaining({ error: "collection unavailable" })
-    );
-
-    warn.mockRestore();
     state.shouldThrow = false;
   });
 });

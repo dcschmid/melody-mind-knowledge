@@ -1,22 +1,17 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import type { AlbumData } from "../types/album";
-import type { CollectionEntry } from "astro:content";
 
 type AlbumCollectionEntry = CollectionEntry<"albums">;
 
 export async function getAvailableAlbums(): Promise<AlbumData[]> {
-  try {
-    const collection = await getCollection(
-      "albums",
-      (entry: AlbumCollectionEntry) => entry.data.isAvailable
-    );
-    return collection.map((item: AlbumCollectionEntry) => ({
-      id: item.id,
-      ...item.data,
-      body: item.body,
-    }));
-  } catch (e) {
-    console.warn("Failed to load albums", { error: (e as any)?.message || e });
-    return [];
-  }
+  const collection = await getCollection(
+    "albums",
+    (entry: AlbumCollectionEntry) => entry.data.isAvailable
+  );
+  return collection.map((item: AlbumCollectionEntry) => ({
+    id: item.id,
+    ...item.data,
+    publishedAt: item.data.publishedAt.toISOString(),
+    body: item.body,
+  }));
 }

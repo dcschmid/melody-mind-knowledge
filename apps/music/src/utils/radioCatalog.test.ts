@@ -32,7 +32,7 @@ vi.mock("./musicImages", () => ({
   getAlbumCoverImagePath: (coverImage: string) => `/covers/${coverImage}`,
 }));
 
-const iso = (day: number) => new Date(Date.UTC(2026, 0, day)).toISOString();
+const utcDate = (day: number) => new Date(Date.UTC(2026, 0, day));
 
 const makeSongs = (count: number) =>
   Array.from({ length: count }, (_, index) => ({
@@ -47,7 +47,7 @@ const makeAlbumData = (id: string, overrides: Record<string, unknown> = {}) => (
   title: `Album ${id}`,
   description: `Description for album ${id}.`,
   coverImage: `${id}.webp`,
-  publishedAt: iso(1),
+  publishedAt: utcDate(1),
   moods: [],
   tags: [],
   energy: "medium",
@@ -67,7 +67,7 @@ const makeGroup = (
     const id = `${prefix}-${index + 1}`;
     return {
       id,
-      data: makeAlbumData(id, { publishedAt: iso(startDay + index), ...overrides }),
+      data: makeAlbumData(id, { publishedAt: utcDate(startDay + index), ...overrides }),
       body: "",
     };
   });
@@ -194,7 +194,7 @@ describe("getRadioCatalog", () => {
     state.albums.push({
       id: "dark-5",
       data: makeAlbumData("dark-5", {
-        publishedAt: iso(29),
+        publishedAt: utcDate(29),
         mainGenre: "Metal",
         energy: "high",
         moods: ["dark"],
